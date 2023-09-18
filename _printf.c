@@ -1,88 +1,50 @@
 #include "main.h"
+#include <stdarg.h>
+#include <unistd.h>
 
 /**
- *_printf - Printf function
- *@format: format.
- *Return: Printed chars.
+ *_printf - Our custom printf function
+ *@format: The format string
+ *@...: The optional arguments
+ *
+ *Return: The number of characters printed
  */
 int _printf(const char *format, ...)
 {
-	if (format == NULL)
-		return (-1);
+	int i = 0, printed_chars = 0;
+	va_list args;
 
-	va_list list;
-	int printed_chars = 0;
-
-	va_start(list, format);
-
-	while (*format)
+	va_start(args, format);
+	while (format && format[i])
 	{
-		if (*format != '%')
+		if (format[i] == '%' && format[i + 1])
 		{
-			putchar(*format);
-			printed_chars++;
-		}
-		else
-		{
-			format++;	// Move past '%'
-			switch (*format)
+			i++;
+			switch (format[i])
 			{
 				case 'c':
-					putchar(va_arg(list, int));
-					printed_chars++;
+					printed_chars += _putchar(va_arg(args, int));
 					break;
 				case 's':
-					printed_chars += print_str(va_arg(list, char *));
+					printed_chars += _puts(va_arg(args, char *));
 					break;
 				case '%':
-					putchar('%');
-					printed_chars++;
+					printed_chars += _putchar('%');
 					break;
 				default:
-					putchar('%');
-					putchar(*format);
+					_putchar('%');
+					_putchar(format[i]);
 					printed_chars += 2;
 			}
 		}
+		else
+		{
+			printed_chars += _putchar(format[i]);
+		}
 
-		format++;
+		i++;
 	}
 
-	va_end(list);
-
-	return (printed_chars);
-}
-
-/**
- *putchar - Helper function to print a character to stdout
- *@c: The character to print
- *Return: Number of characters printed (always 1)
- */
-int putchar(char c)
-{
-	write(1, &c, 1);
-	return (1);
-}
-
-/**
- *print_str - Helper function to print a string to stdout
- *@str: The string to print
- *Return: Number of characters printed
- */
-int print_str(char *str)
-{
-	if (str == NULL)
-	{
-		str = "(null)";
-	}
-
-	int printed_chars = 0;
-	while (*str)
-	{
-		putchar(*str);
-		printed_chars++;
-		str++;
-	}
-
+	va_end(args);
 	return (printed_chars);
 }

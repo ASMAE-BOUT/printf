@@ -1,5 +1,4 @@
 #include "main.h"
-
 /**
  *Return: the length of the string.
  */
@@ -35,15 +34,12 @@ int _printf(const char *const format, ...)
 		{ "%p", printf_pointer
 		}
 	};
-
 	va_list args;
 	int i = 0, j, len = 0;
-
 	va_start(args, format);
 	if (format == NULL || (format[0] == '%' && format[1] == '\0'))
 		return (-1);
-
-	Here:
+Here:
 		while (format[i] != '\0')
 		{
 			j = 13;
@@ -55,15 +51,12 @@ int _printf(const char *const format, ...)
 					i = i + 2;
 					goto Here;
 				}
-
 				j--;
 			}
-
 			_putchar(format[i]);
 			len++;
 			i++;
 		}
-
 	va_end(args);
 	return (len);
 }

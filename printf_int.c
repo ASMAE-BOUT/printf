@@ -48,7 +48,7 @@ int printf_int(va_list args)
 }
 
 /**
- *printf_dec - prints a decimal number 
+ *printf_dec - prints a decimal number
  *@args: argument to print
  *Return: number of characters printed
  */

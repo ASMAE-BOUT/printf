@@ -16,7 +16,7 @@
 typedef struct format
 {
 	char *id;
-	int(*f)();
+	int (*f)();
 }
 
 convert_match;

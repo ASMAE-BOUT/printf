@@ -1,5 +1,4 @@
 #include "main.h"
-#include <string.h>
 
 /**
  *_printf - is a function that selects the correct function to print.

@@ -1,5 +1,4 @@
 #include "main.h"
-#include <string.h>
 
 /**
  *_printf - is a function that selects the correct function to print.
@@ -58,7 +57,6 @@ Here:
 					i = i + 2;
 					goto Here;
 				}
-
 				j--;
 			}
 
@@ -66,7 +64,6 @@ Here:
 			len++;
 			i++;
 		}
-
 	va_end(args);
 	return (len);
 }

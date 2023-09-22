@@ -39,6 +39,7 @@ int _printf(const char *const format, ...)
 	};
 
 	va_list args;
+
 	int i = 0, j, len = 0;
 
 	va_start(args, format);
@@ -57,6 +58,7 @@ Here:
 					i = i + 2;
 					goto Here;
 				}
+
 				j--;
 			}
 
@@ -64,6 +66,7 @@ Here:
 			len++;
 			i++;
 		}
+
 	va_end(args);
 	return (len);
 }

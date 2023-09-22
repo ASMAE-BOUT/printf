@@ -41,13 +41,12 @@ int _printf(const char *const format, ...)
 	va_start(args, format);
 	if (format == NULL || (format[0] == '%' && format[1] == '\0'))
 		return (-1); <<
-	<< <<<HEAD
+<<<<< HEAD
 
-		===
-		=== = >>>
-		>>> > 34 edd8087a159ec5babce9f2ad7f6dedef45778e
-	Here:
-		while (format[i] != '\0')
+=======
+>>>>>>> 34 edd8087a159ec5babce9f2ad7f6dedef45778e
+Here:
+	        while (format[i] != '\0')
 		{
 			j = 13;
 			while (j >= 0)

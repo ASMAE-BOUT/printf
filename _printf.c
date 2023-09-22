@@ -1,7 +1,9 @@
 #include "main.h"
 
 /**
- *Return: give the length of the string.
+ *_printf - is a function that selects the correct function to print.
+ *@format: identifier to look for.
+ *Return: the length of the string.
  */
 int _printf(const char *const format, ...)
 {
@@ -38,8 +40,10 @@ int _printf(const char *const format, ...)
 
 	va_list args;
 	int i = 0, j, len = 0;
+
 	va_start(args, format);
 	if (format == NULL || (format[0] == '%' && format[1] == '\0'))
+<<<<<<< HEAD
 		return (-1); <<
 <<<<< HEAD
 
@@ -47,6 +51,12 @@ int _printf(const char *const format, ...)
 >>>>>>> 34 edd8087a159ec5babce9f2ad7f6dedef45778e
 Here:
 	        while (format[i] != '\0')
+=======
+		return (-1);
+
+	Here:
+		while (format[i] != '\0')
+>>>>>>> c7ff6fa9c9051cbaa3431b5b427a565359cac276
 		{
 			j = 13;
 			while (j >= 0)
